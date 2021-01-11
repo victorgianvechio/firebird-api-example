@@ -81,10 +81,4 @@ Necessário instalar o **IIS Node** e também o **NVM** (Node Version Manager)
 
 # Logs
 
-Existem dois tipos de log na aplicação:
--    **development** - log mais completo. Geralmente utilizados para as rotas **Database** pois mostra o SQL e os parâmetros recebidos
--    **production** - log mais simples com algumas informações das requisições feitas na API
-
-Para alterar o tipo de log basta alterar o valor da variável **NODE_ENV** no arquivo **.env**
-
 Os logs são gerados dentro da pasta **build/iinode**
