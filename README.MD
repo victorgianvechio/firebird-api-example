@@ -40,7 +40,7 @@ Ex: **yarn env usuario_banco senha_banco**
 
 gera o **Bearer Token** que deve ser passado no header das requisições feitas para a API. É utilizado o **APP_SECRET** do arquivo .env para criar o token.
 
-Pode passar como parametro o número de dias. Se nenhum parâmetro for passado o token não vai ira ter validade.
+Pode passar como parametro o número de dias. Se o parâmetro **-n** for passado o token não vai ter validade.
 
 Ex:
 -    **yarn token 7** - gera um token que expira em 7 dias.
