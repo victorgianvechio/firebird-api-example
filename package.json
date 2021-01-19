@@ -23,7 +23,8 @@
     "token": "sucrase-node src/utils/tokenGenerator.js",
     "build": "babel src -d build --copy-files",
     "start": "node build/server.js",
-    "test:db": "sucrase-node src/test/firebirdConnection.js"
+    "test:db": "sucrase-node src/test/firebirdConnection.js",
+    "crypto-connection": "sucrase-node src/utils/cryptoConnection.js"
   },
   "engineStrict": true,
   "engines": {

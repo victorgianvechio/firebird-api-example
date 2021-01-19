@@ -4,20 +4,32 @@ import { readFileSync } from 'fs';
 import options from '../config/firebird';
 
 class FirebirdConnection {
-  async exec(query) {
+  async exec(query, params) {
     const data = new Promise(resolve => {
       Firebird.attach(options, async (attachError, db) => {
         if (attachError) throw attachError;
 
-        await db.query(query, (queryError, result) => {
-          if (queryError) {
-            console.error('queryError', queryError);
-            throw queryError;
-          }
-
-          db.detach();
-          resolve(result);
-        });
+        if(params === undefined) {
+          await db.query(query, (queryError, result) => {
+            if (queryError) {
+              console.error('queryError', queryError);
+              throw queryError;
+            }
+  
+            db.detach();
+            resolve(result);
+          });
+        } else {
+          await db.query(query, params, (queryError, result) => {
+            if (queryError) {
+              console.error('queryError', queryError);
+              throw queryError;
+            }
+  
+            db.detach();
+            resolve(result);
+          });
+        }        
       });
     });
     return data;

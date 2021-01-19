@@ -3,8 +3,15 @@ import db from '../../../database/FirebirdConnection';
 
 class TesteController {
   async index(req, res) {
+
+    const {data_emissao} = req.query;
+
+    const myDate = data_emissao.split('/');
+    const param = myDate[1] + '/' + myDate[0] + '/' + myDate[2];
+
     const query = db.readSQL(resolve(__dirname, 'teste.sql'));
-    const data = await db.exec(query);
+
+    const data = await db.exec(query, [param]);
     return res.status(200).json(data);
   }
 

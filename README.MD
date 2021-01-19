@@ -34,18 +34,32 @@ obs: também gera uma **APP_SECRET** de 128 bytes que é utilizado para descript
 
 Ex: **yarn env usuario_banco senha_banco**
 
+## Criptografar credênciais do banco
+
+**yarn crypto-connection [user pass]**
+
+gera no console informações necessárias para utilizar no **.env** e conectar no banco de dados.
+
+Ex: **yarn crypto-connection usuario_banco senha_banco**
+
+## Teste de conexão
+
+**yarn test:db**
+
+realiza um teste de conexão no banco de dados.
+
 ## Token
 
-**yarn token [days]**
+**yarn token [user days]**
 
 gera o **Bearer Token** que deve ser passado no header das requisições feitas para a API. É utilizado o **APP_SECRET** do arquivo .env para criar o token.
 
 Pode passar como parametro o número de dias. Se o parâmetro **-n** for passado o token não vai ter validade.
 
 Ex:
--    **yarn token 7** - gera um token que expira em 7 dias.
--    **yarn token 30** - gera um token que expira em 30 dias.
--    **yarn token -n** - gera um token sem data de validade.
+-    **yarn token user 7** - gera um token que expira em 7 dias.
+-    **yarn token user 30** - gera um token que expira em 30 dias.
+-    **yarn token user -n** - gera um token sem data de validade.
 
 ## Build
 
